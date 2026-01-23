@@ -12,7 +12,7 @@ const MobileNav = ({showNav, closeNav}:props) => {
     {/* dark */}
     <div className={`fixed ${sideBarOpenClose} inset-0 transform transition-all duration-500 z-40 bg-black opacity-70 w-full h-screen`}></div>
     {/* navlinks */}
-    <div className={`relative text-white ${sideBarOpenClose} fixed justify-center flex flex-col h-screen transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-blue-900 space-y-6 z-50 p-8`}>
+    <div className={`fixed text-white ${sideBarOpenClose} justify-center flex flex-col h-screen transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-blue-900 space-y-6 z-50 p-8`}>
       {NAVLINKS.map((link)=>{
         return(
           <Link key={link.id}
