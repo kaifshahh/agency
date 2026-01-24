@@ -1,0 +1,39 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollSmoother from "gsap/ScrollSmoother";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+export default function SmoothScroll({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!wrapperRef.current || !contentRef.current) return;
+
+    const smoother = ScrollSmoother.create({
+      wrapper: wrapperRef.current,
+      content: contentRef.current,
+      smooth: 1.2, // scroll smoothness
+      effects: true, // enable data-speed animations
+      normalizeScroll: true,
+    });
+
+    return () => smoother.kill();
+  }, []);
+
+  return (
+    <div ref={wrapperRef} id="smooth-wrapper">
+      <div ref={contentRef} id="smooth-content">
+        {children}
+      </div>
+    </div>
+  );
+}

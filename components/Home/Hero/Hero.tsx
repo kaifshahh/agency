@@ -8,79 +8,79 @@ import { TypeAnimation } from "react-type-animation";
 import { CiDesktopMouse2 } from "react-icons/ci";
 
 const Hero = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const context = canvas.getContext("2d");
-    if (!context) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const particles: Array<{
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-    }> = [];
-    for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() * 2 - 1,
-        speedY: Math.random() * 2 - 1,
-        opacity: Math.random() * 0.5 + 0.2,
-      });
-    }
-    function animate() {
-      if (!context || !canvas) return;
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((particle) => {
-        context.beginPath();
-        context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        context.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
-        context.fill();
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
-      });
-      requestAnimationFrame(animate);
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+  // const canvasRef = useRef<HTMLCanvasElement>(null);
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   if (!canvas) return;
+  //   const context = canvas.getContext("2d");
+  //   if (!context) return;
+  //   canvas.width = window.innerWidth;
+  //   canvas.height = window.innerHeight;
+  //   const particles: Array<{
+  //     x: number;
+  //     y: number;
+  //     size: number;
+  //     speedX: number;
+  //     speedY: number;
+  //     opacity: number;
+  //   }> = [];
+  //   for (let i = 0; i < 100; i++) {
+  //     particles.push({
+  //       x: Math.random() * canvas.width,
+  //       y: Math.random() * canvas.height,
+  //       size: Math.random() * 3 + 1,
+  //       speedX: Math.random() * 2 - 1,
+  //       speedY: Math.random() * 2 - 1,
+  //       opacity: Math.random() * 0.5 + 0.2,
+  //     });
+  //   }
+  //   function animate() {
+  //     if (!context || !canvas) return;
+  //     context.clearRect(0, 0, canvas.width, canvas.height);
+  //     particles.forEach((particle) => {
+  //       context.beginPath();
+  //       context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+  //       context.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+  //       context.fill();
+  //       particle.x += particle.speedX;
+  //       particle.y += particle.speedY;
+  //       if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+  //       if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+  //     });
+  //     requestAnimationFrame(animate);
+  //     for (let i = 0; i < particles.length; i++) {
+  //       for (let j = i + 1; j < particles.length; j++) {
+  //         const dx = particles[i].x - particles[j].x;
+  //         const dy = particles[i].y - particles[j].y;
+  //         const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
-            context.strokeStyle = `rgba(255,255,255,${1 - distance / 120})`;
-            context.lineWidth = 0.5;
-            context.beginPath();
-            context.moveTo(particles[i].x, particles[i].y);
-            context.lineTo(particles[j].x, particles[j].y);
-            context.stroke();
-          }
-        }
-      }
-    }
-    animate();
-    const handleResize = () => {
-      if (canvas) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //         if (distance < 120) {
+  //           context.strokeStyle = `rgba(255,255,255,${1 - distance / 120})`;
+  //           context.lineWidth = 0.5;
+  //           context.beginPath();
+  //           context.moveTo(particles[i].x, particles[i].y);
+  //           context.lineTo(particles[j].x, particles[j].y);
+  //           context.stroke();
+  //         }
+  //       }
+  //     }
+  //   }
+  //   animate();
+  //   const handleResize = () => {
+  //     if (canvas) {
+  //       canvas.width = window.innerWidth;
+  //       canvas.height = window.innerHeight;
+  //     }
+  //   };
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <canvas
+      {/* <canvas
         ref={canvasRef}
         className="absolute inset-0 bg-linear-to-br from-blue-900 via-purple-900 to-pink-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800"
-      />
+      /> */}
 
       <div className="relative z-10 max-w-7xl text-center sm:px-6 lg:px-8 px-4">
         <div>
