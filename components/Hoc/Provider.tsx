@@ -75,7 +75,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     <>
       <canvas
         ref={canvasRef}
-        className=" inset-0 bg-linear-to-br from-red-950 via-purple-900 to-gray-900 dark:from-black dark:via-gray-950 dark:to-black fixed i -z-10 pointer-events-none"
+        className=" inset-0 bg-linear-to-br from-red-950 via-purple-900 to-gray-900 dark:from-black dark:via-gray-900 dark:to-black fixed i -z-10 pointer-events-none"
       />
 
       <ThemeProvider attribute="class" enableSystem defaultTheme="system">

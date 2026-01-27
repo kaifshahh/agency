@@ -37,7 +37,7 @@ const ServicesCard = ({ icon, title }: props) => {
 
   return (
     <Tilt
-      className="relative group backdrop-blur-md bg-gray-900/70 dark:bg-gray-900/30 rounded-lg p-5 
+      className="relative group backdrop-blur-md bg-white/3 rounded-lg p-5 
       border border-white/20 transition-all duration-300 hover:shadow-[0_0_18px_rgba(59,130,246,0.6)]"
       tiltMaxAngleX={10}
       tiltMaxAngleY={10}
