@@ -6,6 +6,7 @@ import Services from "./Services/Services";
 import WhyUs from "./WhyUs/WhyUs";
 import Price from "./Price/Price";
 import ClientReviews from "./ClientReview/ClientReview";
+import GlobeDemo from "./ContactUs/ContactUs";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <WhyUs />
       <Price />
       <ClientReviews />
+      <GlobeDemo />
     </div>
   );
 };

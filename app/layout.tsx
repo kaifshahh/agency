@@ -4,6 +4,7 @@ import "./globals.css";
 import Provider from "@/components/Hoc/Provider";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 import SmoothScroll from "@/components/Hoc/SmoothScroll";
+import Footer from "@/components/Home/Footer/Footer";
 const font = Rubik({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -23,7 +24,10 @@ export default function RootLayout({
       <body className={`${font.className} antialiased`}>
         <Provider>
           <ResponsiveNav />
-          <SmoothScroll>{children}</SmoothScroll>
+          <SmoothScroll>
+            {children}
+            <Footer />
+          </SmoothScroll>
         </Provider>
       </body>
     </html>

@@ -20,7 +20,8 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
       speedY: number;
       opacity: number;
     }> = [];
-    for (let i = 0; i < 100; i++) {
+    const particleCount = window.innerWidth < 640 ? 40 : 100;
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
