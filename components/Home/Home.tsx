@@ -17,7 +17,7 @@ const Home = () => {
       <WhyUs />
       <Price />
       <ClientReviews />
-      <GlobeDemo />
+   //   <GlobeDemo />
     </div>
   );
 };
