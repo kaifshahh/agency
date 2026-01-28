@@ -3,10 +3,10 @@ import Earth from "./Earth";
 import { Sparkles } from "./Particles";
 import ContactForm from "./ContactForm";
 
-function index() {
+function ContacUS() {
   return (
     <>
-      <div className="h-screen overflow-hidden bg-black/90 text-white">
+      <div className="h-screen overflow-hidden bg-black/60  text-white  pt-14 ">
         <article className="grid gap-4 text-center relative z-10 pt-10">
           <span className="inline-block text-sm border p-1 px-3 w-fit mx-auto rounded-full border-[#3273ff] bg-[#0f1c35]">
             Connect With Us
@@ -42,4 +42,4 @@ function index() {
   );
 }
 
-export default index;
+export default ContacUS;

@@ -1,15 +1,17 @@
-import React from 'react'
-import { CgWebsite } from 'react-icons/cg';
+import React from "react";
+import { CgWebsite } from "react-icons/cg";
 
 const Logo = () => {
   return (
-    <div className='flex items-center space-x-2'>
-      <div className='w-10 h-10 rounded-full flex items-center justify-center flex-col'>
-        <CgWebsite className='text-white w-6 h-6 cursor-pointer'/>
-        </div>
-        <h1 className='text-xl hidden sm:block md:text-2xl text-white font-bold'>webdev</h1 >
+    <div className="flex items-center space-x-2">
+      <div className="w-10 h-10 rounded-full flex items-center justify-center flex-col">
+        <CgWebsite className="text-white w-6 h-6 cursor-pointer" />
       </div>
-  )
-}
+      <h1 className="text-xl hidden sm:block md:text-2xl text-white font-bold">
+        SheesJc
+      </h1>
+    </div>
+  );
+};
 
 export default Logo;

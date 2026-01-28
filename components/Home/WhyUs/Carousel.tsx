@@ -275,7 +275,7 @@ export default function Carousel({
       className={`relative overflow-hidden p-4 ${
         round
           ? "rounded-full border border-white"
-          : "rounded-3xl border border-pink-900 bg-black/50 backdrop-blur-md"
+          : "rounded-3xl border border-gray-400 bg-white/3 dark:bg-black/80 backdrop-blur-md"
       }`}
       style={{
         width: `${baseWidth}px`,

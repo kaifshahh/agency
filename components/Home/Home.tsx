@@ -7,6 +7,9 @@ import WhyUs from "./WhyUs/WhyUs";
 import Price from "./Price/Price";
 import ClientReviews from "./ClientReview/ClientReview";
 import GlobeDemo from "./ContactUs/ContactUs";
+import ContacUS from "./ContactUs/ContactUs";
+import ContactForm from "./ContactUs/ContactForm";
+import ContactMinimal from "./ContactUs/ContactMinimal";
 
 const Home = () => {
   return (
@@ -17,7 +20,7 @@ const Home = () => {
       <WhyUs />
       <Price />
       <ClientReviews />
-   //   <GlobeDemo />
+      <ContactMinimal />
     </div>
   );
 };

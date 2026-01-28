@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
 
-export const aboutPage
- = () => {
+export const aboutPage = () => {
   return (
-    <div>aboutPage
-
-    </div>
-  )
+    <div className="h-screen  flex items-center justify-center">aboutPage</div>
+  );
 };
 export default aboutPage;

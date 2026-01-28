@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactForm() {
   return (
-    <section className="w-full flex items-center justify-center bg-black/90 pb-10">
+    <section className="w-full flex items-center justify-center bg-black/60 py-10">
       <div className="w-[90%] max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[65vh]">
         {/* LEFT FORM */}
         <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">

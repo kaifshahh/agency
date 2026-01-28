@@ -28,7 +28,9 @@ const Nav = ({ openNav }: props) => {
     >
       <div className="flex items-center h-full justify-between w-[90%] xl:w-[80%] mx-auto">
         {/* Logo Section */}
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
         {/* Nav Links Section */}
         <div className="hidden lg:flex items-center space-x-10">
           {NAVLINKS.map((link) => {
@@ -45,12 +47,12 @@ const Nav = ({ openNav }: props) => {
         </div>
         {/* buttons */}
         <div className="flex items-center  space-x-5">
-          <a
-            href="#"
+          <Link
+            href="/contact"
             className="px-6 py-2 border border-white text-white rounded-full hover:bg-yellow-200 hover:border-yellow-200 hover:text-black transition-all duration-200 font-semibold"
           >
-            <span className="mr-2">Sign In</span>
-          </a>
+            <span className="mr-2">Get Started</span>
+          </Link>
           <div>
             <ThemeToggler />
           </div>

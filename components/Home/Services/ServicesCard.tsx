@@ -37,7 +37,7 @@ const ServicesCard = ({ icon, title }: props) => {
 
   return (
     <Tilt
-      className="relative group backdrop-blur-md bg-white/3 rounded-lg p-5 
+      className="relative group backdrop-blur-3xl bg-white/3 rounded-lg p-5 
       border border-white/20 transition-all duration-300 hover:shadow-[0_0_18px_rgba(59,130,246,0.6)]"
       tiltMaxAngleX={10}
       tiltMaxAngleY={10}
@@ -49,7 +49,7 @@ const ServicesCard = ({ icon, title }: props) => {
       {/* Glow Layer */}
       <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition duration-300 blur-lg bg-blue-500/30"></div>
 
-      <div ref={cardRef} className="relative z-10">
+      <div ref={cardRef} className="relative z-10 ">
         {/* Icon */}
         <div
           className="w-20 h-20 bg-blue-100 rounded-full mx-auto mt-2 shadow-md flex items-center justify-center 

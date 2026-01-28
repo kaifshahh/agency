@@ -4,7 +4,7 @@ import { reviews } from "@/constant/constant";
 
 export default function ClientReviews() {
   return (
-    <section className="relative w-full py-15 bg-white/0 text-white overflow-hidden">
+    <section className="relative w-full py-15 bg-white/0 dark:bg-black/10 text-white overflow-hidden">
       <div>
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <h2 className=" text-red-500 sm:text-xl md:text-2xl font-medium">
