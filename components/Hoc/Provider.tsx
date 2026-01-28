@@ -8,70 +8,96 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const context = canvas.getContext("2d");
-    if (!context) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const particles: Array<{
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+
+    type Particle = {
       x: number;
       y: number;
       size: number;
       speedX: number;
       speedY: number;
       opacity: number;
-    }> = [];
-    const particleCount = window.innerWidth < 640 ? 40 : 100;
+    };
+
+    const particles: Particle[] = [];
+
+    const isMobile = window.innerWidth < 640;
+    const particleCount = isMobile ? 35 : 90; // optimized count
+    const speedFactor = isMobile ? 0.25 : 0.35; // slower on mobile
+    const maxDistance = isMobile ? 70 : 120;
+
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() * 2 - 1,
-        speedY: Math.random() * 2 - 1,
+        size: Math.random() * 2.5 + 0.8,
+        speedX: (Math.random() * 2 - 1) * speedFactor,
+        speedY: (Math.random() * 2 - 1) * speedFactor,
         opacity: Math.random() * 0.5 + 0.2,
       });
     }
-    function animate() {
-      if (!context || !canvas) return;
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((particle) => {
-        context.beginPath();
-        context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        context.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
-        context.fill();
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
-      });
-      requestAnimationFrame(animate);
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
-            context.strokeStyle = `rgba(255,255,255,${1 - distance / 120})`;
-            context.lineWidth = 0.5;
-            context.beginPath();
-            context.moveTo(particles[i].x, particles[i].y);
-            context.lineTo(particles[j].x, particles[j].y);
-            context.stroke();
+    let animationId: number;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        // Bounce effect
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+        ctx.fill();
+
+        // Draw lines (optimized)
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = p.x - particles[j].x;
+          const dy = p.y - particles[j].y;
+          const dist = dx * dx + dy * dy; // no sqrt (faster)
+
+          if (dist < maxDistance * maxDistance) {
+            const opacity = 1 - dist / (maxDistance * maxDistance);
+            ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
+            ctx.lineWidth = 0.4;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
           }
         }
       }
-    }
-    animate();
-    const handleResize = () => {
-      if (canvas) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+
+      animationId = requestAnimationFrame(animate);
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    animate();
+
+    window.addEventListener("resize", resizeCanvas);
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationId);
+    };
   }, []);
+
   return (
     <>
       <canvas

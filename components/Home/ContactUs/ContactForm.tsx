@@ -4,6 +4,28 @@ import React from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactForm() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+
+    const phoneNumber = "+919028525688"; // 👈 your WhatsApp number (with country code)
+
+    const message = `🚀 hello there let's connect!
+    
+👤 Name: ${name}
+📞 Phone: ${phone}
+📧 Email: ${email}`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  };
+
   return (
     <section className="w-full flex items-center justify-center bg-black/60 py-10">
       <div className="w-[90%] max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[65vh]">
@@ -13,11 +35,12 @@ export default function ContactForm() {
             Send us a message
           </h2>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <label className="text-sm text-white/80">Full Name</label>
               <input
                 type="text"
+                name="name"
                 placeholder="Write your name here"
                 className="w-full mt-2 px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
@@ -27,6 +50,7 @@ export default function ContactForm() {
               <label className="text-sm text-white/80">Phone Number</label>
               <input
                 type="text"
+                name="phone"
                 placeholder="Write your phone here"
                 className="w-full mt-2 px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />
@@ -36,6 +60,7 @@ export default function ContactForm() {
               <label className="text-sm text-white/80">Email</label>
               <input
                 type="email"
+                name="email"
                 placeholder="Write your email here"
                 className="w-full mt-2 px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
               />

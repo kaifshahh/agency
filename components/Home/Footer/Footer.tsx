@@ -49,7 +49,6 @@ const Footer = () => {
                 <Link href={item.Url}>{item.name}</Link>
               </li>
             ))}
-            21`<wbr></wbr>`
           </ul>
         </div>
 
