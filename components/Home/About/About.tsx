@@ -84,14 +84,14 @@ const About = () => {
       ref={sectionRef}
       className="py-20 backdrop-blur-sm bg-white/0 dark:bg-black/10 rounded-lg"
     >
-      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 ">
         {/* Left Column - Image */}
         <div ref={imgRef}>
           <Image
             className="rounded-lg"
             alt="img"
             src={"/images/about1.png"}
-            width={500}
+            width={600}
             height={500}
           />
         </div>

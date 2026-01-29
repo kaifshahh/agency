@@ -1,8 +1,7 @@
+import Services from "@/components/Home/Services/Services";
 import React from "react";
 
 export const aboutPage = () => {
-  return (
-    <div className="h-screen  flex items-center justify-center">aboutPage</div>
-  );
+  return <Services />;
 };
 export default aboutPage;

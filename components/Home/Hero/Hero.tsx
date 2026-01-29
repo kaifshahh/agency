@@ -88,7 +88,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link
-            href="#projects"
+            href="/contact"
             className="group inline-flex items-center justify-center space-x-2 bg-white/80 text-gray-900 font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
           >
             <span>Get Started</span>
@@ -96,7 +96,7 @@ const Hero = () => {
           </Link>
 
           <Link
-            href="#about"
+            href="/about"
             className="inline-flex items-center justify-center space-x-2 border-2 border-white/50 text-white/80 font-semibold px-8 py-4 rounded-full hover:bg-white/80 hover:text-black transition-all duration-300 transform hover:scale-105 hover:border-white"
           >
             <span>Learn More</span>

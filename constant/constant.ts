@@ -1,11 +1,13 @@
+import { Heading } from "lucide-react";
+import { desc } from "motion/react-client";
+
 export const NAVLINKS=[
   {id :0, url:'/' ,label : 'Home'},
   {id :1, url:'/services' ,label : 'Services'},
   {id :2, url:'/work' ,label : 'Work'},
   {id :3, url:'/pricing' ,label : 'Pricing'},
   {id :4, url:'/blog' ,label : 'Blog'},
-  {id :5, url:'/about' ,label : 'About'},
-  {id :6, url:'/contact' ,label : 'Contact'},
+  {id :5, url:'/contact' ,label : 'Contact'},
 ];
 
 export const Plans = [
@@ -87,5 +89,75 @@ export const reviews = [
     name: "Rahul Verma",
     role: "Founder, TechNova",
     text: "Amazing UI and fast delivery. Highly recommended for startups.",
+  },
+];
+
+export const services = [
+  {
+   id : 1,
+    title: "Web Development",
+    icon: "/images/webd.png",
+    heading: "High-performance, conversion-focused websites built with modern frameworks",
+    desc: [
+      "Custom UI/UX design",
+      "Next.js / React development",
+      "SEO-friendly structure",
+      "Mobile-optimized & responsive",]
+  },
+  {
+   id : 2,
+    title: "App Development (iOS & Android)",
+     icon: "/images/app-development.png",
+      heading: "Scalable mobile applications designed for speed, usability, and growth.",
+    desc: [ "iOS & Android apps",
+      "React Native / Flutter",
+      "Secure API integration",
+      "App store deployment",
+     ], 
+  },
+  {
+   id : 3,
+    title: "Custom Software Development",
+     icon: "/images/customdev.png",
+      heading: "Tailored software solutions designed to automate and scale your business.",
+    desc: [ 
+      "Custom dashboards & tools",
+      "Workflow automation",
+      "Backend & API development",
+      "Scalable architecture",
+     ],
+  },
+  {
+   id : 4,
+    title: "Lead Generation Systems",
+     icon: "/images/user-engagement.png",
+      heading: "AI-powered lead generation systems that attract and qualify customers automatically.",
+    desc: [ "Automated lead capture",
+      "Lead qualification & scoring",
+      "CRM integration",
+      "Analytics & reporting",
+    ],
+  },
+  {
+   id : 5,
+    title: "Custom AI Chatbots", 
+     icon: "/images/chat-bot.png",
+      heading: "Intelligent chatbots that engage visitors and convert leads 24/7.",
+    desc: [ "Website & WhatsApp bots",
+      "Lead qualification",
+      "Customer support automation",
+      "Multi-language support",], 
+  },
+  {
+   id : 6,
+    title: "Business Automation",
+     icon: "/images/automated-process.png",
+      heading: "End-to-end automation solutions that reduce manual work and improve efficiency.",
+    desc: [
+      "CRM & workflow automation",
+      "AI-powered process optimization",
+      "Tool & API integrations",
+      "Real-time monitoring",
+     ],
   },
 ];
