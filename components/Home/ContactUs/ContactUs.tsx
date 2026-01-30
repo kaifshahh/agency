@@ -67,7 +67,8 @@ function ContacUS() {
     <>
       <div
         ref={sectionRef}
-        className="h-screen overflow-hidden bg-black/60 text-white pt-14"
+        className="h-screen overflow-hidden bg-black/8
+         dark:bg-black/60 text-white pt-14"
       >
         <article
           ref={textRef}
@@ -77,7 +78,10 @@ function ContacUS() {
             Connect With Us
           </span>
 
-          <h1 className="text-4xl font-semibold bg-linear-to-b from-[#edeffd] to-[#7b9cda] bg-clip-text text-transparent leading-[100%] tracking-tighter">
+          <h1
+            className="text-4xl font-semibold  bg-linear-to-b from-[#575968] to-[#121417]
+        dark:bg-linear-to-b dark:from-[#5864bc] dark:to-[#7b9cda]  bg-clip-text text-transparent leading-[100%] tracking-tighter"
+          >
             Join Our Workplaces Around The World!
             <br />
             Ready to Transform Your Business?
@@ -89,7 +93,7 @@ function ContacUS() {
         <div
           className="relative -mt-32 h-80 w-screen overflow-hidden mask-[radial-gradient(50%_50%_at_center,white,transparent)]
           before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#3273ff,transparent_90%)] before:opacity-40
-          after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[10%] after:border-t after:border-[#163474] after:bg-[#08132b]"
+          after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[10%] after:border-t after:border-[#163474] after:bg-blue-950"
         >
           <Sparkles
             density={800}
@@ -103,9 +107,9 @@ function ContacUS() {
 
           <div
             ref={bottomTextRef}
-            className="absolute inset-0 flex items-center justify-center pt-35 text-sm lg:text-2xl font-bold text-white z-20 text-center px-20"
+            className="absolute inset-0 flex items-center justify-center pt-25 text-sm lg:text-2xl font-bold text-white z-20 text-center px-20"
           >
-            Lets discuss how AI automation can drive growth for your company.
+            Lets discuss here
           </div>
         </div>
       </div>

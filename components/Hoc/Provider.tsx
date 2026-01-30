@@ -1,10 +1,12 @@
 "use client";
 import { ThemeProvider } from "next-themes";
-
 import React, { useEffect, useRef } from "react";
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particlesRef = useRef<any[]>([]);
+  const animationRef = useRef<number | null>(null);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -19,63 +21,61 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
     resizeCanvas();
 
-    type Particle = {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-    };
-
-    const particles: Particle[] = [];
-
     const isMobile = window.innerWidth < 640;
-    const particleCount = isMobile ? 35 : 90; // optimized count
-    const speedFactor = isMobile ? 0.25 : 0.35; // slower on mobile
+    const particleCount = isMobile ? 35 : 90;
+    const speedFactor = isMobile ? 0.25 : 0.35;
     const maxDistance = isMobile ? 70 : 120;
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
+    if (particlesRef.current.length === 0) {
+      particlesRef.current = Array.from({ length: particleCount }).map(() => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * 2.5 + 0.8,
         speedX: (Math.random() * 2 - 1) * speedFactor,
         speedY: (Math.random() * 2 - 1) * speedFactor,
         opacity: Math.random() * 0.5 + 0.2,
-      });
+      }));
     }
-
-    let animationId: number;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw particles
+      const dark = document.documentElement.classList.contains("dark");
+
+      const particles = particlesRef.current;
+
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
         p.x += p.speedX;
         p.y += p.speedY;
 
-        // Bounce effect
         if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
         if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
 
+        // ✅ Theme-based colors (WORKING)
+        const particleColor = dark
+          ? `rgba(255,255,255,${p.opacity})`
+          : `rgba(0,0,0,${p.opacity})`;
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+        ctx.fillStyle = particleColor;
         ctx.fill();
 
-        // Draw lines (optimized)
         for (let j = i + 1; j < particles.length; j++) {
           const dx = p.x - particles[j].x;
           const dy = p.y - particles[j].y;
-          const dist = dx * dx + dy * dy; // no sqrt (faster)
+          const dist = dx * dx + dy * dy;
 
           if (dist < maxDistance * maxDistance) {
             const opacity = 1 - dist / (maxDistance * maxDistance);
-            ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
+
+            const lineColor = dark
+              ? `rgba(255,255,255,${opacity})`
+              : `rgba(0,0,0,${opacity})`;
+
+            ctx.strokeStyle = lineColor;
             ctx.lineWidth = 0.4;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
@@ -85,7 +85,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
         }
       }
 
-      animationId = requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     };
 
     animate();
@@ -94,7 +94,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationId);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, []);
 
@@ -102,7 +102,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     <>
       <canvas
         ref={canvasRef}
-        className=" inset-0 bg-linear-to-br from-red-950 via-purple-900 to-gray-900 dark:from-black dark:via-gray-900 dark:to-black fixed i -z-10 pointer-events-none"
+        className="fixed inset-0 -z-10 pointer-events-none bg-linear-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-black dark:via-gray-950 dark:to-black"
       />
 
       <ThemeProvider attribute="class" enableSystem defaultTheme="system">

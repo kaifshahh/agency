@@ -49,7 +49,7 @@ const Price = () => {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-white/0 dark:bg-black/10 text-white overflow-hidden"
+      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-white/0 dark:bg-black/10 text-slate-900 dark:text-white overflow-hidden"
     >
       <div className="w-[80%] mx-auto space-y-14">
         <div

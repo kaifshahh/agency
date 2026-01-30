@@ -104,7 +104,7 @@ function CarouselItem({
       className={`relative shrink-0 flex flex-col ${
         round
           ? "items-center justify-center text-center bg-[#060010] border-0"
-          : "items-start justify-between bg-purple-900 dark:bg-gray-900 border border-[#222] rounded-[12px]"
+          : "items-start justify-between bg-zinc-400 dark:bg-gray-900 border border-[#222] rounded-[12px]"
       } overflow-hidden cursor-grab active:cursor-grabbing`}
       //baad me responsive thn se sa set krna hai
       style={{
@@ -121,10 +121,12 @@ function CarouselItem({
         </span>
       </div>
       <div className="p-5">
-        <div className="mb-1 font-black text-lg text-gray-200">
+        <div className="mb-1 font-black text-lg text-gray-900 dark:text-gray-300">
           {item.title}
         </div>
-        <p className="text-sm text-gray-300">{item.description}</p>
+        <p className="text-sm text-black dark:text-gray-300">
+          {item.description}
+        </p>
       </div>
     </motion.div>
   );
@@ -275,7 +277,7 @@ export default function Carousel({
       className={`relative overflow-hidden p-4 ${
         round
           ? "rounded-full border border-white"
-          : "rounded-3xl border border-gray-400 bg-white/3 dark:bg-black/80 backdrop-blur-md"
+          : "rounded-3xl border border-gray-700 bg-slate-900 dark:bg-black backdrop-blur-md"
       }`}
       style={{
         width: `${baseWidth}px`,
@@ -323,7 +325,7 @@ export default function Carousel({
                 activeIndex === index
                   ? round
                     ? "bg-white"
-                    : "bg-pink-900"
+                    : "bg-white"
                   : round
                     ? "bg-[#555]"
                     : "bg-gray-600"

@@ -13,10 +13,10 @@ export default function ClientReviews() {
               Reviews
             </span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-200 leading-10 md:leading-14 ">
+          <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-gray-200 leading-10 md:leading-14 ">
             Trusted by Indian Businesses
           </h1>
-          <h1 className=" text-lg text-gray-400 md:text-xl font-bold  leading-10 md:leading-14 ">
+          <h1 className=" text-lg text-slate-800 dark:text-gray-400 md:text-xl font-bold  leading-10 md:leading-14 ">
             Real feedback from founders, doctors, investors, and enterprise
             leaders.
           </h1>
@@ -33,7 +33,7 @@ export default function ClientReviews() {
           {[...reviews, ...reviews].map((review, index) => (
             <div
               key={index}
-              className=" min-w-70 my-4 w-80 rounded-2xl border border-white bg-white/3 backdrop-blur-md p-6 
+              className=" min-w-70 my-4 w-80 rounded-2xl border border-black dark:border-white bg-black/5 dark:bg-white/3 backdrop-blur-md p-6 
 shadow-[0_0_20px_rgba(255,255,255,0.05)] transition-all duration-300 cursor-pointer
 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(99,102,241,0.4),0_0_20px_rgba(236,72,153,0.15)]"
             >
@@ -45,7 +45,7 @@ hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(99,102,241,0.4),0_0_20px_rgba(236
                   </span>
                 ))}
               </div>
-              <p className="text-sm text-white/80 mb-4 leading-relaxed">
+              <p className="text-sm text-slate-800 dark:text-white/80 mb-4 leading-relaxed">
                 “{review.text}”
               </p>
               <div className="flex items-center gap-3 mt-4">
@@ -56,8 +56,10 @@ hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(99,102,241,0.4),0_0_20px_rgba(236
                 />
 
                 <div>
-                  <h3 className="font-semibold text-sm">{review.name}</h3>
-                  <p className="text-xs text-indigo-400">{review.role}</p>
+                  <h3 className="font-semibold text-black dark:text-white text-sm">
+                    {review.name}
+                  </h3>
+                  <p className="text-xs text-indigo-500">{review.role}</p>
                 </div>
               </div>
             </div>

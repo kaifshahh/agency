@@ -72,11 +72,12 @@ const WhyUs = () => {
           <h2 className=" font-medium text-red-500 dark:text-red-300">
             Why Us
           </h2>
-          <h1 className=" text-2xl md:text-4xl  lg:text-5xl font-bold  leading-8 md:leading-12 lg:leading-14 text-gray-200 dark:text-gray-100 mt-4 tracking-wider  ">
+          <h1 className=" text-2xl md:text-4xl  lg:text-5xl font-bold  leading-8 md:leading-12 lg:leading-14 text-slate-800 dark:text-gray-100 mt-4 tracking-wider  ">
             We Provide Best Digital Solutions
           </h1>
-          <p className=" text-gray-300 dark:text-gray-300  leading-7 ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          <p className=" text-slate-700 dark:text-gray-300  leading-7 ">
+            We create modern websites, AI-driven tools, and automation systems
+            that simplify workflows and accelerate business growth.
           </p>
 
           <div className="mt-8">
@@ -86,18 +87,21 @@ const WhyUs = () => {
                 icon: (
                   <FaRocket className=" text-white dark:text-black w-6 h-6" />
                 ),
+                desc: "We deliver high-performance digital solutions optimized for speed, stability, and seamless user experience across all devices.",
               },
               {
                 title: "Dedicated Team",
                 icon: (
                   <FaHammer className=" text-white dark:text-black w-6 h-6" />
                 ),
+                desc: "Our experienced developers and designers work closely with you to understand your goals and build solutions that truly fit your business.",
               },
               {
                 title: "24/7 Support",
                 icon: (
                   <BiSupport className=" text-white dark:text-black w-6 h-6" />
                 ),
+                desc: "We provide continuous support and maintenance to ensure your website and systems run smoothly without interruptions.",
               },
             ].map((item, i) => (
               <div
@@ -111,11 +115,11 @@ const WhyUs = () => {
                   {item.icon}
                 </div>
                 <div className="flex-1">
-                  <h1 className="text-xl font-semibold text-gray-200 dark:text-gray-100">
+                  <h1 className="text-xl font-semibold text-slate-800 dark:text-gray-100">
                     {item.title}
                   </h1>
-                  <p className=" text-gray-300 dark:text-gray-300  leading-6 lg:w-[85%] ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  <p className=" text-slate-700 dark:text-gray-300  leading-6 lg:w-[85%] ">
+                    {item.desc}
                   </p>
                 </div>
               </div>
@@ -128,7 +132,7 @@ const WhyUs = () => {
           ref={rightRef}
           className="flex flex-col items-center justify-center"
         >
-          <h2 className=" text-xl md:text-2xl  lg:text-3xl font-bold  leading-8 md:leading-12 lg:leading-14 text-gray-200 dark:text-gray-100 mb-8 pt-8  ">
+          <h2 className=" text-xl md:text-2xl  lg:text-3xl font-bold  leading-8 md:leading-12 lg:leading-14 text-slate-800 dark:text-gray-100 mb-8 pt-8  ">
             Empowering businesses with AI-driven automation, smart workflows,
             and digital transformation.
           </h2>

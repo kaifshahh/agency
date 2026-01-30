@@ -101,10 +101,10 @@ const About = () => {
           <h1 className="text-2xl font-medium mb-6 text-pink-500 dark:text-pink-500">
             About Us
           </h1>
-          <h1 className="text-white sm:text-4xl md:text-4xl lg:text-6xl dark:text-gray-200 mt-2 ">
+          <h1 className="text-slate-800 sm:text-4xl md:text-4xl lg:text-6xl dark:text-gray-200 mt-2 ">
             We are a the leader in web Design
           </h1>
-          <p className="text-white dark:text-gray-400 mt-6 leading-relaxed">
+          <p className="text-slate-700 dark:text-gray-400 mt-6 leading-relaxed">
             At SheesJc Technologies, we are passionate about crafting
             exceptional digital experiences that empower businesses to thrive in
             the digital landscape.

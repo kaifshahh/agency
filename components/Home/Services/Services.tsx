@@ -52,7 +52,7 @@ const Services = () => {
         <h1 className="text-red-500 dark:text-red-300 text-xl font-bold text-center">
           Our Services
         </h1>
-        <h1 className="text-center text-3xl md:text-4xl lg:text-5xl text-white dark:text-gray-100 mt-4 font-bold tracking-wider ">
+        <h1 className="text-center text-3xl md:text-4xl lg:text-5xl text-slate-800 dark:text-gray-100 mt-4 font-bold tracking-wider ">
           Provided Features
         </h1>
       </div>

@@ -49,9 +49,13 @@ const ContactMinimal = () => {
     <>
       <div
         ref={sectionRef}
-        className="grid gap-4 text-center relative z-10 py-10 bg-black/60 dark:text-white"
+        className="grid gap-4 text-center relative z-10 py-10  dark:bg-black/60 dark:text-white"
       >
-        <h1 className="text-4xl font-semibold bg-linear-to-b from-[#edeffd] to-[#7b9cda] bg-clip-text text-transparent leading-[100%] tracking-tighter">
+        <h1
+          className="text-4xl font-semibold 
+        bg-linear-to-b from-[#575968] to-[#121417]
+        dark:bg-linear-to-b dark:from-[#5864bc] dark:to-[#7b9cda] bg-clip-text text-transparent leading-[100%] tracking-tighter"
+        >
           Join Our Workplaces Around The World!
           <br />
           Ready to Transform Your Business?
