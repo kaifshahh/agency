@@ -1,13 +1,24 @@
 "use client";
 import { ThemeProvider } from "next-themes";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<any[]>([]);
   const animationRef = useRef<number | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current!;
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+
+  useLayoutEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -102,7 +113,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     <>
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 -z-10 pointer-events-none bg-linear-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-black dark:via-gray-950 dark:to-black"
+        className="fixed inset-0 -z-10 w-full h-full pointer-events-none bg-linear-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-black dark:via-gray-950 dark:to-black"
       />
 
       <ThemeProvider attribute="class" enableSystem defaultTheme="system">

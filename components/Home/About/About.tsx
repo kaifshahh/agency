@@ -87,13 +87,7 @@ const About = () => {
       <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16 ">
         {/* Left Column - Image */}
         <div ref={imgRef}>
-          <Image
-            className="rounded-lg"
-            alt="img"
-            src={"/images/about1.png"}
-            width={600}
-            height={500}
-          />
+          <Image alt="img" src={"/images/group.png"} width={600} height={400} />
         </div>
 
         {/* Right Column - Text Content */}

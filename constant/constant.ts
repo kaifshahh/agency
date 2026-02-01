@@ -31,7 +31,7 @@ export const Plans = [
     title: "Mobile App Development",
     subtitle: "iOS + Android apps",
     description: "Best for startups & businesses building scalable mobile applications.",
-    price: "$699",
+    price: "699",
     features: [
       "Product strategy & roadmap",
       "UI/UX design for mobile",
