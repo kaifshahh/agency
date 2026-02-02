@@ -92,8 +92,9 @@ const About = () => {
 
         {/* Right Column - Text Content */}
         <div ref={textRef}>
-          <h1 className="text-2xl font-medium mb-6 text-pink-500 dark:text-pink-500">
-            About Us
+          <h1 className="text-2xl font-medium mb-6 ">
+            <span className="text-pink-500">About</span>
+            <span className="text-indigo-500 ml-1 italic">Us</span>
           </h1>
           <h1 className="text-slate-800 sm:text-4xl md:text-4xl lg:text-6xl dark:text-gray-200 mt-2 ">
             We are a the leader in web Design

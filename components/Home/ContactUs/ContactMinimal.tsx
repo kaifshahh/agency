@@ -53,8 +53,7 @@ const ContactMinimal = () => {
       >
         <h1
           className="text-4xl font-semibold 
-        bg-linear-to-b from-[#575968] to-[#121417]
-        dark:bg-linear-to-b dark:from-[#5864bc] dark:to-[#7b9cda] bg-clip-text text-transparent leading-[100%] tracking-tighter"
+        bg-linear-to-b from-red-600 to-indigo-600 bg-clip-text text-transparent leading-[100%] tracking-tighter"
         >
           Join Our Workplaces Around The World!
           <br />

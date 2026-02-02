@@ -58,7 +58,7 @@ const Hero = () => {
 
         <h1
           ref={headingRef}
-          className="text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-800 dark:text-white/80 mb-6"
+          className="text-4xl sm:text-6xl lg:text-7xl font-bold from-red-600 to-indigo-600 bg-linear-to-r text-transparent bg-clip-text mb-6"
         >
           <TypeAnimation
             sequence={[

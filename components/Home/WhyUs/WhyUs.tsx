@@ -69,8 +69,9 @@ const WhyUs = () => {
       <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
         <div ref={leftRef}>
-          <h2 className=" font-medium text-red-500 dark:text-red-300">
-            Why Us
+          <h2 className=" font-medium">
+            <span className="text-red-500">Why</span>
+            <span className="text-indigo-500 ml-1 italic">Us</span>
           </h2>
           <h1 className=" text-2xl md:text-4xl  lg:text-5xl font-bold  leading-8 md:leading-12 lg:leading-14 text-slate-800 dark:text-gray-100 mt-4 tracking-wider  ">
             We Provide Best Digital Solutions

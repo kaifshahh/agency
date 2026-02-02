@@ -24,7 +24,7 @@ const MobileNav = ({ showNav, closeNav }: props) => {
               key={link.id}
               href={link.url}
               onClick={closeNav}
-              className="text-black dark:text-white w-full text-[20px] ml-12 border-b-[1.5px pb-1 border-white]"
+              className="text-white w-full text-[20px] ml-12 border-b-[1.5px pb-1 border-white]"
             >
               <p>{link.label}</p>
             </Link>

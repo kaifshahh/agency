@@ -49,8 +49,8 @@ const Services = () => {
   return (
     <div ref={sectionRef} className="py-20 dark:bg-black/10 backdrop-blur-sm">
       <div ref={headingRef}>
-        <h1 className="text-red-500 dark:text-red-300 text-xl font-bold text-center">
-          Our Services
+        <h1 className="text-red-500 text-3xl font-medium text-center">
+          Our <span className="text-indigo-500 italic ml-2">Services</span>
         </h1>
         <h1 className="text-center text-3xl md:text-4xl lg:text-5xl text-slate-800 dark:text-gray-100 mt-4 font-bold tracking-wider ">
           Provided Features
